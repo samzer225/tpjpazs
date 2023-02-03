@@ -1,10 +1,9 @@
 package system;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Ticket {
@@ -18,7 +17,8 @@ public class Ticket {
 
     private Tag tag;
     private User user;
-    private UserSupportTech userST;
+
+    private Set<UserSupportTech> userST = new HashSet<>();
 
     /**
      * Constructor
@@ -84,14 +84,14 @@ public class Ticket {
         this.user = user;
     }
 
-    /*
+
     @ManyToMany
-    public UserSupportTech getUser() {
+    public Set<UserSupportTech> getUserST() {
         return userST;
     }
 
-    public void setUser(UserSupportTech userST) {
+    public void setUserST(Set<UserSupportTech> userST) {
         this.userST = userST;
     }
-     */
+
 }

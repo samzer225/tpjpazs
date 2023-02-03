@@ -1,9 +1,8 @@
 package system;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Tag {
@@ -11,7 +10,7 @@ public class Tag {
     private Long idTag;
     private String libelle;
 
-    private Ticket ticket;
+    private Set<Ticket> tickets = new HashSet<>();
 
 
     public Tag(){}
@@ -35,6 +34,15 @@ public class Tag {
 
     public void setLibelle(String libelle) {
         this.libelle = libelle;
+    }
+
+    @OneToMany(mappedBy = "tag", cascade = CascadeType.PERSIST)
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
     }
 
     /*
