@@ -42,19 +42,24 @@ public class JpaTest {
 	}
 
 
+	/**
+	 * @name createUser
+	 */
 	private void createUser() {
-		int numOfEmployees = manager.createQuery("Select u From User u", User.class).getResultList().size();
-		if (numOfEmployees == 0) {
+		int numOfUsers = manager.createQuery("Select u From User u", User.class).getResultList().size();
+		if (numOfUsers == 0) {
 			Ticket ticket = new Ticket("bug on project", "Todo");
 			manager.persist(ticket);
 
 			manager.persist(new User("Jakab Gipsz"));
 			manager.persist(new User("Captain Nemo"));
-			manager.persist(new UserSupportTech());
+			manager.persist(new UserSupportTech("Zabra Enoch", "Consultant"));
 
 		}
 	}
-
+	/**
+	 * @name listUser
+	 */
 	private void listUser() {
 		List<User> resultList = manager.createQuery("Select a From User a", User.class).getResultList();
 		System.out.println("num of employess:" + resultList.size());

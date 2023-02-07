@@ -38,3 +38,25 @@ INSERT INTO USER VALUES('User',3,'Captain Nemo',NULL)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
 DISCONNECT
+/*C5*/SET SCHEMA PUBLIC
+drop table if exists Tag CASCADE 
+drop table if exists Ticket CASCADE 
+drop table if exists Ticket_User CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Tag (id bigint not null, libelle varchar(255), primary key (id))
+create table Ticket (idTicket bigint not null, dateCreationTicket timestamp, libelle varchar(255), statut varchar(255), tag_id bigint, user_idUser bigint, primary key (idTicket))
+create table Ticket_User (Ticket_idTicket bigint not null, userST_idUser bigint not null, primary key (Ticket_idTicket, userST_idUser))
+create table User (DTYPE varchar(31) not null, idUser bigint not null, name varchar(255), job varchar(255), primary key (idUser))
+alter table Ticket add constraint FKfkwtkvxadsk3pf0d3jbj1aejr foreign key (tag_id) references Tag
+alter table Ticket add constraint FKs5bq6nqftdg5l36umq2w66cp7 foreign key (user_idUser) references User
+alter table Ticket_User add constraint FKax7d1f8bl18oumr76s3lmunib foreign key (userST_idUser) references User
+alter table Ticket_User add constraint FKtr67fl3wej5qnng9694l7dh14 foreign key (Ticket_idTicket) references Ticket
+INSERT INTO TICKET VALUES(1,NULL,'bug on project','Todo',NULL,NULL)
+INSERT INTO USER VALUES('User',2,'Jakab Gipsz',NULL)
+INSERT INTO USER VALUES('User',3,'Captain Nemo',NULL)
+INSERT INTO USER VALUES('UserSupportTech',4,'Zabra Enoch','Consultant')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+DISCONNECT
