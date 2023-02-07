@@ -1,16 +1,17 @@
 package system;
 
-import javax.annotation.processing.Generated;
+//import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Inheritance
 public class User {
 	private Long idUser;
 	private String name;
 
-	private Set<Ticket> listTickets = new HashSet<>();
+	protected Set<Ticket> listTickets = new HashSet<>();
 
 	/**
 	 * Constructor

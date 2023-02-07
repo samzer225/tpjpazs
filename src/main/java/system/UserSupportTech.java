@@ -1,19 +1,14 @@
 package system;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
 import javax.persistence.ManyToMany;
-import java.util.HashSet;
 import java.util.Set;
 
 
 @Entity
-@Inheritance
 public class UserSupportTech extends User {
 
     private String job;
-    private Set<Ticket> tickets = new HashSet<>();
-
 
     /**
      * Constructor
@@ -33,14 +28,15 @@ public class UserSupportTech extends User {
     }
 
 
+    @Override
     @ManyToMany
-    public Set<Ticket> getTickets() {
-        return tickets;
+    public Set<Ticket> getListTickets() {
+        return super.getListTickets();
     }
 
-
-    public void setTickets(Set<Ticket> tickets) {
-        this.tickets = tickets;
+    @Override
+    public void setListTickets(Set<Ticket> listTickets) {
+        super.setListTickets(listTickets);
     }
 
 }

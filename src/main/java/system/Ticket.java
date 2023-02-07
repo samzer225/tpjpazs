@@ -8,8 +8,6 @@ import java.util.Set;
 @Entity
 public class Ticket {
 
-    @Id
-    @GeneratedValue
     private Long idTicket;
     private String libelle;
     private Date dateCreationTicket;
@@ -34,6 +32,8 @@ public class Ticket {
     /**
      *  Getter and Setter
      */
+    @Id
+    @GeneratedValue
     public Long getIdTicket() {
         return idTicket;
     }
