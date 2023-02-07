@@ -1,6 +1,6 @@
-/*C6*/SET SCHEMA PUBLIC
-DISCONNECT
 /*C7*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C8*/SET SCHEMA PUBLIC
 drop table if exists Tag CASCADE 
 drop table if exists Ticket CASCADE 
 drop table if exists Ticket_User CASCADE 
