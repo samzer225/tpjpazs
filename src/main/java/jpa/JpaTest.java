@@ -41,9 +41,12 @@ public class JpaTest {
 	}
 
 
+	/**
+	 * @name createUser
+	 */
 	private void createUser() {
-		int numOfEmployees = manager.createQuery("Select u From User u", User.class).getResultList().size();
-		if (numOfEmployees == 0) {
+		int numOfUsers = manager.createQuery("Select u From User u", User.class).getResultList().size();
+		if (numOfUsers == 0) {
 			Ticket ticket = new Ticket("bug on project", "Todo");
 			manager.persist(ticket);
 
@@ -53,6 +56,9 @@ public class JpaTest {
 		}
 	}
 
+	/**
+	 * @name listUser
+	 */
 	private void listUser() {
 		List<User> resultList = manager.createQuery("Select a From User a", User.class).getResultList();
 		System.out.println("num of employess:" + resultList.size());
