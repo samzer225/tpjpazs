@@ -15,6 +15,12 @@ public class UserSupportTech extends User {
      */
     public UserSupportTech(){}
 
+    public UserSupportTech(String name, String job){
+        this.job = job;
+        this.setName(name);
+    }
+
+
     /**
      * Getter and Setter
      * @return
@@ -29,7 +35,11 @@ public class UserSupportTech extends User {
 
 
     @Override
+<<<<<<< HEAD
     @ManyToMany(mappedBy = "userST") 
+=======
+    @ManyToMany
+>>>>>>> da1af238e61b06d944826af42addeb258a604013
     public Set<Ticket> getListTickets() {
         return super.getListTickets();
     }

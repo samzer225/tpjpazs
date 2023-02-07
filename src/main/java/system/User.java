@@ -9,7 +9,7 @@ import java.util.Set;
 @Inheritance
 public class User {
 	private Long idUser;
-	private String name;
+	protected String name;
 
 	protected Set<Ticket> listTickets = new HashSet<>();
 
