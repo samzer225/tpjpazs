@@ -15,6 +15,12 @@ public class UserSupportTech extends User {
      */
     public UserSupportTech(){}
 
+    public UserSupportTech(String name, String job){
+        this.job = job;
+        this.setName(name);
+    }
+
+
     /**
      * Getter and Setter
      * @return
