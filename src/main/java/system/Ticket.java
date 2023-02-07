@@ -17,7 +17,6 @@ public class Ticket {
     private User user;
 
     private Set<UserSupportTech> userST = new HashSet<>();
-
     /**
      * Constructor
      */

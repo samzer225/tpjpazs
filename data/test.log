@@ -1,22 +1,40 @@
-/*C7*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C8*/SET SCHEMA PUBLIC
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+COMMIT
+/*C3*/SET SCHEMA PUBLIC
 drop table if exists Tag CASCADE 
 drop table if exists Ticket CASCADE 
 drop table if exists Ticket_User CASCADE 
 drop table if exists User CASCADE 
-drop table if exists User_Ticket CASCADE 
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
 create table Tag (id bigint not null, libelle varchar(255), primary key (id))
 create table Ticket (idTicket bigint not null, dateCreationTicket timestamp, libelle varchar(255), statut varchar(255), tag_id bigint, user_idUser bigint, primary key (idTicket))
 create table Ticket_User (Ticket_idTicket bigint not null, userST_idUser bigint not null, primary key (Ticket_idTicket, userST_idUser))
 create table User (DTYPE varchar(31) not null, idUser bigint not null, name varchar(255), job varchar(255), primary key (idUser))
-create table User_Ticket (UserSupportTech_idUser bigint not null, tickets_idTicket bigint not null, primary key (UserSupportTech_idUser, tickets_idTicket))
 alter table Ticket add constraint FKfkwtkvxadsk3pf0d3jbj1aejr foreign key (tag_id) references Tag
 alter table Ticket add constraint FKs5bq6nqftdg5l36umq2w66cp7 foreign key (user_idUser) references User
 alter table Ticket_User add constraint FKax7d1f8bl18oumr76s3lmunib foreign key (userST_idUser) references User
 alter table Ticket_User add constraint FKtr67fl3wej5qnng9694l7dh14 foreign key (Ticket_idTicket) references Ticket
-alter table User_Ticket add constraint FKmv05oa8ewyq3p34arcxfv024b foreign key (tickets_idTicket) references Ticket
-alter table User_Ticket add constraint FKe3j8t759l9hp09xllf31e3h67 foreign key (UserSupportTech_idUser) references User
+DISCONNECT
+/*C4*/SET SCHEMA PUBLIC
+drop table if exists Tag CASCADE 
+drop table if exists Ticket CASCADE 
+drop table if exists Ticket_User CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Tag (id bigint not null, libelle varchar(255), primary key (id))
+create table Ticket (idTicket bigint not null, dateCreationTicket timestamp, libelle varchar(255), statut varchar(255), tag_id bigint, user_idUser bigint, primary key (idTicket))
+create table Ticket_User (Ticket_idTicket bigint not null, userST_idUser bigint not null, primary key (Ticket_idTicket, userST_idUser))
+create table User (DTYPE varchar(31) not null, idUser bigint not null, name varchar(255), job varchar(255), primary key (idUser))
+alter table Ticket add constraint FKfkwtkvxadsk3pf0d3jbj1aejr foreign key (tag_id) references Tag
+alter table Ticket add constraint FKs5bq6nqftdg5l36umq2w66cp7 foreign key (user_idUser) references User
+alter table Ticket_User add constraint FKax7d1f8bl18oumr76s3lmunib foreign key (userST_idUser) references User
+alter table Ticket_User add constraint FKtr67fl3wej5qnng9694l7dh14 foreign key (Ticket_idTicket) references Ticket
+INSERT INTO TICKET VALUES(1,NULL,'bug on project','Todo',NULL,NULL)
+INSERT INTO USER VALUES('User',2,'Jakab Gipsz',NULL)
+INSERT INTO USER VALUES('User',3,'Captain Nemo',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
 DISCONNECT

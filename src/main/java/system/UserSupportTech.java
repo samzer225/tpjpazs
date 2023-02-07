@@ -29,7 +29,7 @@ public class UserSupportTech extends User {
 
 
     @Override
-    @ManyToMany
+    @ManyToMany(mappedBy = "userST") 
     public Set<Ticket> getListTickets() {
         return super.getListTickets();
     }
