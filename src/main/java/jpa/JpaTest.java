@@ -57,7 +57,7 @@ public class JpaTest {
 	}
 
 	/**
-	 * @name listUser listUserlistUser 
+	 * @name listUser
 	 */
 	private void listUser() {
 		List<User> resultList = manager.createQuery("Select a From User a", User.class).getResultList();
