@@ -2,10 +2,7 @@ package jpa;
 
 import system.Ticket;
 import system.User;
-<<<<<<< HEAD
 import system.UserSupportTech;
-=======
->>>>>>> da1af238e61b06d944826af42addeb258a604013
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -56,17 +53,11 @@ public class JpaTest {
 
 			manager.persist(new User("Jakab Gipsz"));
 			manager.persist(new User("Captain Nemo"));
-<<<<<<< HEAD
 			manager.persist(new UserSupportTech("Zabra Enoch", "Consultant"));
 
 		}
 	}
-=======
 
-		}
-	}
-
->>>>>>> da1af238e61b06d944826af42addeb258a604013
 	/**
 	 * @name listUser
 	 */
