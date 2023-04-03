@@ -2,7 +2,6 @@ package jpa;
 
 import system.Ticket;
 import system.User;
-import system.UserSupportTech;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -26,10 +25,10 @@ public class JpaTest {
 		EntityManager manager = EntityManagerHelper.getEntityManager();
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
-		JpaTest jpatest = new JpaTest(manager);
+
 
 		try {
-			jpatest.createUser();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,7 +52,6 @@ public class JpaTest {
 
 			manager.persist(new User("Jakab Gipsz"));
 			manager.persist(new User("Captain Nemo"));
-			manager.persist(new UserSupportTech("Zabra Enoch", "Consultant"));
 
 		}
 	}
